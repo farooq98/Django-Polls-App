@@ -1,5 +1,5 @@
 from django.shortcuts import render
-
+from .models import Question, Options
 
 data = [
     {
@@ -19,10 +19,36 @@ data = [
     },
 ]
 
+options = {
+    1: [
+        "Farooq",
+        "Shahzaib",
+        "Talha",
+    ],
+    2: [
+        "Areeb",
+        "Huzaifa",
+        "Umer",
+    ],
+    3: [
+        "Java",
+        "Python",
+        "C#",
+    ]
+}
+
 def show(request):
-    return render(request, 'djangolab/index.html', {"data":data})
+    question = Question.objects.all()
+    return render(request, 'djangolab/index.html', {"data":question})
 
 def about(request):
-    return render(request, 'djangolab/about.html')
+    pass
+
+def getData(request, **kwargs):
+    question_id = kwargs["question_id"]
+    question = Question.objects.get(pk=question_id)
+    opt = question.options_set.all()
+    print(opt)
+    return render(request, 'djangolab/about.html', {"data": opt})
 
 

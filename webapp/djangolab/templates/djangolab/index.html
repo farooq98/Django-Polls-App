@@ -11,7 +11,7 @@
         <title>Home Polls</title>
     </head>
     <body>
-        <div class="container mt-5">
+        <div class="container mt-3">
             <h1>Polling <span class="badge bg-secondary">App</span></h1>
 
             {% if data %}
@@ -20,8 +20,8 @@
 
                     <div class="card mt-3" style="width: 25rem;">
                         <div class="card-body">
-                        <h5 class="card-title">{{ info.date }}</h5>
-                        <p class="card-text">{{ info.question }}</p>
+                        <h5 class="card-title">{{ info.question_text }}</h5>
+                        <p class="card-text">{{ info.pub_date }}</p>
                         <a href="/{{ info.id }}/" class="btn btn-primary">View Options</a>
                         </div>
                     </div>
