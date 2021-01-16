@@ -51,4 +51,7 @@ def getData(request, **kwargs):
     print(opt)
     return render(request, 'djangolab/about.html', {"data": opt, "question": question})
 
+def submitResponse(request):
+    return render(request, "djangolab/thankyou.html")
+
 
