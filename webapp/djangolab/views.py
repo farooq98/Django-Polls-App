@@ -49,6 +49,6 @@ def getData(request, **kwargs):
     question = Question.objects.get(pk=question_id)
     opt = question.options_set.all()
     print(opt)
-    return render(request, 'djangolab/about.html', {"data": opt})
+    return render(request, 'djangolab/about.html', {"data": opt, "question": question})
 
 
