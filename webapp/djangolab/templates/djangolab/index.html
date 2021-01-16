@@ -9,6 +9,8 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     
         <title>Home Polls</title>
+
+        <link rel="icon" type="image/png" href="https://img.icons8.com/ios-filled/100/000000/poll-topic.png"/>
     </head>
     <body>
         <div class="container mt-3">
@@ -18,7 +20,7 @@
 
                 {% for info in data %}
 
-                    <div class="card mt-3" style="width: 25rem;">
+                    <div class="card mt-3" style="width: 100%;">
                         <div class="card-body">
                         <h5 class="card-title">{{ info.question_text }}</h5>
                         <p class="card-text">{{ info.pub_date }}</p>
