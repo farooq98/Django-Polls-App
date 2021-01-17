@@ -1,0 +1,36 @@
+{% extends "djangolab/base.html" %}
+
+{% block title %}
+    <title>Results</title>
+{% endblock title %}
+
+{% block content %}
+    <div class="container mt-3">
+        <h1>VOTING <span class="badge bg-primary">RESULTS</span></h1>
+
+        {% if data %}
+            {% for question in data %}
+
+                <h5>{{ question.question_text }}</h5>
+
+                <table class="table table-striped">
+                    <thead>
+                        <tr class="bg-primary" style="color: white;">
+                            <th scope="col">Options</th>
+                            <th scope="col">Votes</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for options in question.options_set.all %}
+                            <tr>
+                                <td>{{ options.choice_text }}</td>
+                                <td>{{ options.votes }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+
+            {% endfor %}
+        {% endif %}
+    </div>
+{% endblock content %}

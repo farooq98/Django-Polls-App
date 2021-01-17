@@ -16,11 +16,15 @@ def getData(request, **kwargs):
         return render(request, 'djangolab/options.html', {"data": opt, "question": question})
     
     if request.method == "POST":
-        print(request.POST)  
+        option_id = int(request.POST.get("radioBtn"))
+        choice = Options.objects.get(id=option_id)
+        choice.votes += 1
+        choice.save()
         return render(request, "djangolab/thankyou.html")
-
 
 def submitResponse(request):
     return render(request, "djangolab/thankyou.html")
 
-
+def showResults(request):
+    questions = Question.objects.all()
+    return render(request, "djangolab/results.html", {"data":questions})
